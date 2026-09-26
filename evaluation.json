@@ -1,0 +1,106 @@
+{
+  "project_title": "Movie Recommendation System Using Hybrid Filtering",
+  "dataset": {
+    "users": 610,
+    "movies": 9742,
+    "ratings": 100836,
+    "rating_scale": "0.5 to 5.0 stars"
+  },
+  "sample_user_id": 1,
+  "sample_hybrid_recommendations": [
+    {
+      "movieId": 2890,
+      "title": "Three Kings (1999)",
+      "genres": "Action|Adventure|Comedy|Drama|War",
+      "score": 0.9039999842643738,
+      "predicted_rating": 5.0
+    },
+    {
+      "movieId": 6016,
+      "title": "City of God (Cidade de Deus) (2002)",
+      "genres": "Action|Adventure|Crime|Drama|Thriller",
+      "score": 0.902999997138977,
+      "predicted_rating": 4.96999979019165
+    },
+    {
+      "movieId": 108932,
+      "title": "The Lego Movie (2014)",
+      "genres": "Action|Adventure|Animation|Children|Comedy|Fantasy",
+      "score": 0.9020000100135803,
+      "predicted_rating": 5.0
+    },
+    {
+      "movieId": 7153,
+      "title": "Lord of the Rings: The Return of the King, The (2003)",
+      "genres": "Action|Adventure|Drama|Fantasy",
+      "score": 0.8989999890327454,
+      "predicted_rating": 5.0
+    },
+    {
+      "movieId": 48774,
+      "title": "Children of Men (2006)",
+      "genres": "Action|Adventure|Drama|Sci-Fi|Thriller",
+      "score": 0.8960000276565552,
+      "predicted_rating": 5.0
+    }
+  ],
+  "sample_content_recommendations": [
+    {
+      "movieId": 166461,
+      "title": "Moana (2016)",
+      "genres": "Adventure|Animation|Children|Comedy|Fantasy",
+      "genre_similarity": 1.0
+    },
+    {
+      "movieId": 103755,
+      "title": "Turbo (2013)",
+      "genres": "Adventure|Animation|Children|Comedy|Fantasy",
+      "genre_similarity": 1.0
+    },
+    {
+      "movieId": 136016,
+      "title": "The Good Dinosaur (2015)",
+      "genres": "Adventure|Animation|Children|Comedy|Fantasy",
+      "genre_similarity": 1.0
+    },
+    {
+      "movieId": 2294,
+      "title": "Antz (1998)",
+      "genres": "Adventure|Animation|Children|Comedy|Fantasy",
+      "genre_similarity": 1.0
+    },
+    {
+      "movieId": 65577,
+      "title": "Tale of Despereaux, The (2008)",
+      "genres": "Adventure|Animation|Children|Comedy|Fantasy",
+      "genre_similarity": 1.0
+    }
+  ],
+  "evaluation": {
+    "split": {
+      "strategy": "Per-user random 80/20 rating holdout",
+      "random_seed": 42,
+      "train_ratings": 80672,
+      "test_ratings": 20164,
+      "test_fraction": 0.2
+    },
+    "rating_prediction": {
+      "global_mean_baseline": {
+        "rmse": 1.0442213876611766,
+        "mae": 0.8266112782954467
+      },
+      "user_user_collaborative_filtering": {
+        "rmse": 0.9527600063672191,
+        "mae": 0.7277213029091946
+      }
+    },
+    "hybrid_ranking": {
+      "positive_rating_threshold": 4.0,
+      "top_n": 10,
+      "users_with_held_out_likes": 604,
+      "precision_at_10": 0.02665562913907285,
+      "recall_at_10": 0.022162138974868826,
+      "hit_rate_at_10": 0.2052980132450331
+    }
+  }
+}
